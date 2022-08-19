@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+* {
+  box-sizing: border-box;
+}
+body,
+html {
+  height: 100%;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+body {
+  font-family: Roboto;
+  color: #303a4b;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fff+0,fff+45,b5c6d0+100 */
+  background: #fff;
+  /* Old browsers */
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, #fff 0%, #fff 45%, #d5dae3 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+body.breaking {
+  background: #fff;
+  /* Old browsers */
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, #fff 0%, #fff 45%, #f6caca 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.enjoy {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+.spinner {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  cursor: -webkit-grab;
+  -webkit-filter: url("#blur");
+  filter: url("#blur");
+}
+.grip {
+  z-index: 2;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.6);
+  background-position: center center;
+  background-repeat: no-repeat;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.text {
+  font-size: 52px;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 300px;
+  font-family: "Orbitron";
+  line-height: 1;
+}
+.text ._label {
+  display: block;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.text ._value {
+  font-weight: 300;
+}
+.breaking .speed ._value {
+  color: red;
+}
+.filters {
+  position: absolute;
+}
+.switch {
+  display: none;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  text-align: center;
+  z-index: 3;
+}
+.switch._visible {
+  display: block;
+}
+.switch a {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  margin: 0;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+.switch a:hover {
+  border-color: #2d4872;
+}
+.switch a._active {
+  border-color: #2d4872;
+  background-color: #2d4872;
+}
+.speed {
+  position: absolute;
+  bottom: 20px;
+  margin-top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.2s ease-out;
+}
+.speed._visible {
+  opacity: 1;
+}
+.speedometer {
+  position: absolute;
+  bottom: 60px;
+  margin-top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.2s ease-out;
+}
+.speedometer._visible {
+  opacity: 1;
+}
+.speedometer span {
+  display: inline-block;
+  margin: 0 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-transform: scale(0.4);
+  transform: scale(0.4);
+  transition: all 0.1s ease-out;
+  position: relative;
+}
+.speedometer span._active {
+  background-color: #2d4872;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.speedometer span:nth-child(3) {
+  margin-right: 100px;
+}
+.speedometer span:nth-child(4) {
+  margin-left: 100px;
+}
+.speedometer span._active:nth-child(1) {
+  -webkit-transform: scale(0.4);
+  transform: scale(0.4);
+}
+.speedometer span._active:nth-child(2) {
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+}
+.speedometer span._active:nth-child(3) {
+  -webkit-transform: scale(0.6);
+  transform: scale(0.6);
+}
+.speedometer span._active:nth-child(4) {
+  -webkit-transform: scale(0.7);
+  transform: scale(0.7);
+}
+.speedometer span._active:nth-child(5) {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+  background-color: #d32121;
+}
+.speedometer span._active:nth-child(6) {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+  background-color: #d32121;
+}
+.breaking .speedometer span {
+  border-color: red;
+}
+.breaking .speedometer span._active {
+  border-color: red;
+  background-color: red;
+}
+.v1 .spinner,
+.v1 .grip {
+  background-image: url(img/spinner3.png);
+}
+.v1 .spinner {
+  width: 400px;
+  height: 400px;
+  margin: -200px 0 0 -200px;
+}
+.v1 .grip {
+  width: 88px;
+  height: 88px;
+  margin: -44px 0 0 -44px;
+}
+.v2 .spinner,
+.v2 .grip {
+  background-image: url(img/spinner2.png);
+}
+.v2 .spinner {
+  width: 300px;
+  height: 300px;
+  margin: -150px 0 0 -150px;
+}
+.v2 .grip {
+  width: 70px;
+  height: 70px;
+  margin: -35px 0 0 -35px;
+}
+.v3 .spinner,
+.v3 .grip {
+  background-image: url(img/spinner4.png);
+}
+.v3 .spinner {
+  width: 400px;
+  height: 400px;
+  margin: -200px 0 0 -200px;
+}
+.v3 .grip {
+  width: 86px;
+  height: 86px;
+  margin: -43px 0 0 -43px;
+}
+.v4 .spinner,
+.v4 .grip {
+  background-image: url(img/spinner5.png);
+}
+.v4 .spinner {
+  width: 400px;
+  height: 400px;
+  margin: -200px 0 0 -200px;
+}
+.v4 .grip {
+  width: 86px;
+  height: 86px;
+  margin: -43px 0 0 -43px;
+}
+.v5 .spinner,
+.v5 .grip {
+  background-image: url(img/spinner6.png);
+}
+.v5 .spinner {
+  width: 400px;
+  height: 400px;
+  margin: -200px 0 0 -200px;
+}
+.v5 .grip {
+  width: 86px;
+  height: 86px;
+  margin: -43px 0 0 -43px;
+}
+.v6 .spinner,
+.v6 .grip {
+  background-image: url(img/spinner7.png);
+}
+.v6 .spinner {
+  width: 400px;
+  height: 400px;
+  margin: -200px 0 0 -200px;
+}
+.v6 .grip {
+  width: 86px;
+  height: 86px;
+  margin: -43px 0 0 -43px;
+}
+.v7 .spinner,
+.v7 .grip {
+  background-image: url(img/spinner8.png);
+}
+.v7 .spinner {
+  width: 400px;
+  height: 400px;
+  margin: -200px 0 0 -200px;
+}
+.v7 .grip {
+  width: 86px;
+  height: 86px;
+  margin: -43px 0 0 -43px;
+}
+.v8 .spinner,
+.v8 .grip {
+  background-image: url(img/spinner9.png);
+}
+.v8 .spinner {
+  width: 400px;
+  height: 400px;
+  margin: -200px 0 0 -200px;
+}
+.v8 .grip {
+  width: 86px;
+  height: 86px;
+  margin: -43px 0 0 -43px;
+}
+.v9 .spinner,
+.v9 .grip {
+  background-image: url(img/spinner10.png);
+}
+.v9 .spinner {
+  width: 400px;
+  height: 400px;
+  margin: -200px 0 0 -200px;
+}
+.v9 .grip {
+  width: 98px;
+  height: 98px;
+  margin: -49px 0 0 -49px;
+}
+
+/*# sourceMappingURL=spinner.min.css.map */

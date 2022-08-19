@@ -1,0 +1,388 @@
+	
+	@color-font: #303a4b;
+	@color-accent: #2d4872;
+	@color-accent-light: tint(@color-accent, 80%);
+
+	@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+	* {
+		box-sizing: border-box;
+	}
+
+	body,
+	html {
+		height: 100%;
+		overflow: hidden;
+		user-select: none;
+		cursor: default;
+	}
+
+	body {
+		font-family: Roboto;
+		color: @color-font;
+
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fff+0,fff+45,b5c6d0+100 */
+		background: #fff; /* Old browsers */
+		background: -moz-radial-gradient(center, ellipse cover, #fff 0%, #fff 45%, @color-accent-light 100%); /* FF3.6-15 */
+		background: -webkit-radial-gradient(center, ellipse cover, #fff 0%,#fff 45%,@color-accent-light 100%); /* Chrome10-25,Safari5.1-6 */
+		background: radial-gradient(ellipse at center, #fff 0%,#fff 45%,@color-accent-light 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	}
+	body.breaking {
+		background: #fff; /* Old browsers */
+		background: -moz-radial-gradient(center, ellipse cover, #fff 0%, #fff 45%, #f6caca 100%); /* FF3.6-15 */
+		background: -webkit-radial-gradient(center, ellipse cover, #fff 0%,#fff 45%,#f6caca 100%); /* Chrome10-25,Safari5.1-6 */
+		background: radial-gradient(ellipse at center, #fff 0%,#fff 45%,#f6caca 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	}
+
+	.enjoy {
+		text-align: center;
+		width: 100%;
+		height: 100%;
+	}
+
+	.spinner {
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		border-radius: 50%;
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 1;
+		cursor: -webkit-grab;
+
+		-webkit-filter: url("#blur");
+		filter: url("#blur");
+	}
+
+	.grip {
+		z-index: 2;
+		border-radius: 50%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		box-shadow: 0 1px 3px 1px rgba(0,0,0,.6);
+		
+		background-position: center center;
+		background-repeat: no-repeat;
+		cursor: grab;
+	}
+	
+	.text {
+		font-size: 52px;
+		text-align: center;
+		padding: 15px;
+		font-weight: 600;
+		display: inline-block;
+		min-width: 300px;
+		font-family: "Orbitron";
+		line-height: 1;
+	}
+
+	.text ._label {
+		display: block;
+		font-size: 13px;
+		text-transform: uppercase;
+		font-weight: 600;
+		letter-spacing: 1px;
+	}
+
+	.text ._value {
+		font-weight: 300;
+	}
+
+	.breaking {
+		.speed ._value {
+			color: red;
+		}
+	}
+
+	.filters {
+		position: absolute;
+	}
+
+	.switch {
+		display: none;
+		position: absolute;
+		right: 20px;
+		bottom: 20px;
+		text-align: center;
+		z-index: 3;
+
+		&._visible {
+			display: block;
+		}
+	}
+
+	.switch a {
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		border: 2px solid rgba(0,0,0,.2);
+		border-radius: 50%;
+		margin: 0;
+		cursor: pointer;
+		transition: all .2s ease-out;
+	}
+
+	.switch a:hover {
+		border-color: @color-accent;
+	}
+
+	.switch a._active {
+		border-color: @color-accent;
+		background-color: @color-accent;
+	}
+
+	// .speedometer {
+	// 	text-align: center;
+
+	// 	progress {
+	// 		-webkit-appearance: none;
+	// 		width: 100%;
+	// 		height: 10px;
+	// 	}
+
+	// 	progress[value]::-webkit-progress-bar {
+	// 		background-color: rgba(0,0,0,.05);
+	// 	}
+
+	// 	progress[value]::-webkit-progress-value {
+	// 		background-color: @color-accent;
+	// 		transition: all .1s ease-out;
+	// 	}
+	// }
+
+	.speed {
+		position: absolute;
+		bottom: 20px;
+		margin-top: 0;
+		left: 0;
+		width: 100%;
+		opacity: 0;
+		transition: all .2s ease-out;
+
+		&._visible {
+			opacity: 1;
+		}
+	}
+
+	.speedometer {
+		position: absolute;
+		bottom: 60px;
+		margin-top: 0;
+		left: 0;
+		width: 100%;
+		opacity: 0;
+		transition: all .2s ease-out;
+
+		&._visible {
+			opacity: 1;
+		}
+
+		span {
+			display: inline-block;
+			margin: 0 10px;
+			width: 16px;
+			height: 16px;
+			border-radius: 50%;
+			background-color: rgba(0,0,0,.1);
+			transform: scale(.4);
+			transition: all .1s ease-out;
+			position: relative;
+
+			&._active {
+				background-color: @color-accent;
+				transform: scale(1);
+			}
+
+			&:nth-child(3) { margin-right: 100px; }
+			&:nth-child(4) { margin-left: 100px; }
+
+			&._active:nth-child(1) { transform: scale(.4); }
+			&._active:nth-child(2) { transform: scale(.5); }
+			&._active:nth-child(3) { transform: scale(.6); }
+			&._active:nth-child(4) { transform: scale(.7); }
+			&._active:nth-child(5) { transform: scale(.8); background-color: #d32121; }
+			&._active:nth-child(6) { transform: scale(.9); background-color: #d32121; }
+		}
+	}
+
+	.breaking {
+		.speedometer {
+			span {
+				border-color: red;
+
+				&._active {
+					border-color: red;
+					background-color: red;
+				}
+			}
+		}
+	}
+
+	.v1 {
+		.spinner,
+		.grip {
+			background-image: url(img/spinner3.png);
+		}
+
+		.spinner {
+			width: 400px;
+			height: 400px;
+			margin: -200px 0 0 -200px;
+		}
+
+		.grip {
+			width: 88px;
+			height: 88px;
+			margin: -44px 0 0 -44px;
+		}
+	}
+
+	.v2 {
+		.spinner,
+		.grip {
+			background-image: url(img/spinner2.png);
+		}
+
+		.spinner {
+			width: 300px;
+			height: 300px;
+			margin: -150px 0 0 -150px;
+		}
+
+		.grip {
+			width: 70px;
+			height: 70px;
+			margin: -35px 0 0 -35px;
+		}
+
+	}
+	.v3 {
+		.spinner,
+		.grip {
+			background-image: url(img/spinner4.png);
+		}
+
+		.spinner {
+			width: 400px;
+			height: 400px;
+			margin: -200px 0 0 -200px;
+		}
+
+		.grip {
+			width: 86px;
+			height: 86px;
+			margin: -43px 0 0 -43px;
+		}
+	}
+	.v4 {
+		.spinner,
+		.grip {
+			background-image: url(img/spinner5.png);
+		}
+
+		.spinner {
+			width: 400px;
+			height: 400px;
+			margin: -200px 0 0 -200px;
+		}
+
+		.grip {
+			width: 86px;
+			height: 86px;
+			margin: -43px 0 0 -43px;
+		}
+	}
+	.v5 {
+		.spinner,
+		.grip {
+			background-image: url(img/spinner6.png);
+		}
+
+		.spinner {
+			width: 400px;
+			height: 400px;
+			margin: -200px 0 0 -200px;
+		}
+
+		.grip {
+			width: 86px;
+			height: 86px;
+			margin: -43px 0 0 -43px;
+		}
+	}
+	.v6 {
+		.spinner,
+		.grip {
+			background-image: url(img/spinner7.png);
+		}
+
+		.spinner {
+			width: 400px;
+			height: 400px;
+			margin: -200px 0 0 -200px;
+		}
+
+		.grip {
+			width: 86px;
+			height: 86px;
+			margin: -43px 0 0 -43px;
+		}
+	}
+	.v7 {
+		.spinner,
+		.grip {
+			background-image: url(img/spinner8.png);
+		}
+
+		.spinner {
+			width: 400px;
+			height: 400px;
+			margin: -200px 0 0 -200px;
+		}
+
+		.grip {
+			width: 86px;
+			height: 86px;
+			margin: -43px 0 0 -43px;
+		}
+	}
+	.v8 {
+		.spinner,
+		.grip {
+			background-image: url(img/spinner9.png);
+		}
+
+		.spinner {
+			width: 400px;
+			height: 400px;
+			margin: -200px 0 0 -200px;
+		}
+
+		.grip {
+			width: 86px;
+			height: 86px;
+			margin: -43px 0 0 -43px;
+		}
+	}
+	.v9 {
+		.spinner,
+		.grip {
+			background-image: url(img/spinner10.png);
+		}
+
+		.spinner {
+			width: 400px;
+			height: 400px;
+			margin: -200px 0 0 -200px;
+		}
+
+		.grip {
+			width: 98px;
+			height: 98px;
+			margin: -49px 0 0 -49px;
+		}
+	}
